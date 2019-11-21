@@ -4,10 +4,17 @@ import { makeStyles } from "@material-ui/styles"
 import chroma from "chroma-js"
 import "./color-box.css"
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import sizes from "./sizes"
 
 const useStyles = makeStyles({
 	coloredText: {
 		color: props => (chroma(props.background).luminance() >= 0.6 ? "#333333" : "#ffffff")
+	},
+	colorBox: {
+		[sizes.down("xs")]: {
+			width: "100%",
+			height: props => (props.showingFullPalette ? "5%" : "10%")
+		}
 	}
 })
 
@@ -23,7 +30,7 @@ const ColorBox = props => {
 
 	return (
 		<CopyToClipboard text={background} onCopy={changeCopyState}>
-			<div style={{ background }} className="color-box">
+			<div style={{ background }} className={`color-box ${classes.colorBox}`}>
 				<div style={{ background }} className={`copy-overlay ${isCopied && "show"}`} />
 				<div className={`copy-msg ${isCopied && "show"}`}>
 					<h2>Copied!</h2>

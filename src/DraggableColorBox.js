@@ -4,13 +4,21 @@ import { SortableElement } from "react-sortable-hoc"
 import DeleteIcon from "@material-ui/icons/Delete"
 
 const useStyles = makeStyles({
+	// "@global": {
+	// 	".fade-exit": {
+	// 		opacity: 1
+	// 	},
+	// 	".fade-exit-active": {
+	// 		opacity: 0,
+	// 		transition: "opacity 300ms ease-out"
+	// 	}
+	// },
 	root: {
 		width: "20%",
 		height: "25%",
 		margin: "0 auto",
 		display: "inline-block",
 		position: "relative",
-		cursor: "pointer",
 		marginBottom: "-3.5px",
 		"&:hover svg": {
 			color: "#ffffff",
@@ -32,6 +40,7 @@ const useStyles = makeStyles({
 	},
 	deleteIcon: {
 		color: "#333333",
+		cursor: "pointer",
 		transition: "all 0.3s ease-in-out"
 	}
 })
